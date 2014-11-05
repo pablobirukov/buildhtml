@@ -5,7 +5,7 @@
 ./vendor/decljson/
         
 ## raw source   
-```
+```html
 <div class="modal-base">
     <div class="modal-header modal-base__header">
         <ng-close-button ng-click="modalOptions.close('close')"></ng-close-button>
@@ -20,7 +20,7 @@
 ```
 
 ## New block
-```
+```xml
 <div class="modal-base" _:block="modal">
     <div class="modal-header modal-base__header">
         <ng-close-button ng-click="modalOptions.close('close')"></ng-close-button>
@@ -39,7 +39,7 @@
 
 ## Form
 
-```
+```xml
 <_:modal>
 	<header>
 		Заголовок окна
@@ -51,7 +51,7 @@
 ```
 
 ## Content
-```
+```json
 {
 	'block-name': {
 		tpl: '<some-html><div>_:param:header</div></some-html>',
