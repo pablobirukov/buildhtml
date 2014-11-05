@@ -5,6 +5,7 @@
 ./vendor/decljson/
         
 ## raw source   
+```
 <div class="modal-base">
     <div class="modal-header modal-base__header">
         <ng-close-button ng-click="modalOptions.close('close')"></ng-close-button>
@@ -16,9 +17,10 @@
     		**CONTENT**
     </div>
 </div>
-
+```
 
 ## New block
+```
 <div class="modal-base" _:block="modal">
     <div class="modal-header modal-base__header">
         <ng-close-button ng-click="modalOptions.close('close')"></ng-close-button>
@@ -31,10 +33,13 @@
         CONTENT
     </div>
 </div>
+```
 
 
 
 ## Form
+
+```
 <_:modal>
 	<header>
 		Заголовок окна
@@ -43,8 +48,10 @@
 		HTML
 	</content>
 </_:modal>
+```
 
 ## Content
+```
 {
 	'block-name': {
 		tpl: '<some-html><div>_:param:header</div></some-html>',
@@ -59,3 +66,4 @@
 		}
 	}
 }
+```
