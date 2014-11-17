@@ -109,8 +109,50 @@
 
 
 
+
 ## На примере формы разберемся с пропертями.
-#### На мой взгляд ннужно прокидывать все проперти из объявления
+
+
+#### Описание блока формы form.html
+
+```html
+<div class="app-form" block="form">
+<!-- Блок типовой формы -->
+    <div class="app-form__head">
+        <h4 class="app-form__title" param="head">
+            <!-- Заголовок формы. Ждем Текст -->
+        </h4>
+    </div>
+    <div class="app-form__body" param="body">
+        <!-- Контент формы. Ждем HTML -->
+    </div>
+    <div class="app-form__footer" param="footer">
+        <!-- Футер формы. Ждем HTML -->
+    </div>
+</div>
+```
+
+#### Описание блока формы form-row.html
+
+```html
+<div class="app-form__row" block="form-row">
+<!-- Блок строки формы -->
+	<label class="app-form__label col-xs-3" param="label"></label>
+	<!-- Лейбл. Ждем текст. -->
+	<div class="col-xs-9" param="control"></div>
+	<!-- Контрол. Ждем HTML -->
+</div>
+```
+
+
+#### Описание блока формы form-control_input.html
+
+```html
+<input class="app-form__control" block="form-control_input" />
+<!-- Блок инпута -->
+```
+
+#### На мой взгляд нужно прокидывать все проперти из объявления блока, кроме тех которые мы явно запрещаем блоку принимать. Нужно придумать как :)
 
 ```html
 <!DOCTYPE html>
@@ -127,17 +169,28 @@
 
         <buildhtml block="form">
             <buildhtml block="form-row">
-                <buildhtml block="form-label">Label text</buildhtml>
-                <buildhtml block="form-control_input"
-                           id="1"
-                           placeholder="Placeholder"></buildhtml>
+            	<label>
+            		<buildhtml block="form-label">Label text</buildhtml>
+            	</label>
+                <control>
+                	<buildhtml block="form-control_input"
+                        	   id="1"
+                           	   placeholder="Placeholder"></buildhtml>
+                </control>
+                
             </buildhtml>
 
             <buildhtml block="form-row">
-                <buildhtml block="form-label">Label 2 text</buildhtml>
-                <buildhtml block="form-control_select"
-                           id="2"
-                            placeholder="Another placeholder"></buildhtml>
+            	<label>
+            		<buildhtml block="form-label">Label 2 text</buildhtml>
+            	</label>
+                <control>
+                	<buildhtml block="form-control_select"
+                           	   id="2"
+                           	   placeholder="Another placeholder"
+                           	   any-denided-property="who-cares?"></buildhtml>
+                </control>
+                
             </buildhtml>
         </buildhtml>
 
