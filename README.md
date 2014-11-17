@@ -1,20 +1,19 @@
-### Структура
-##### blocks - файлы блоков buildhtml с описанием каждого параметра.
+##### В папке blocks находятся файлы блоков buildhtml с описанием каждого параметра.
 ###### Например modal.html включает в себя разметку типового модального окна, а так же информацию для документации. Обязательно нужно документировать каждый блок и каждый параметр. Для этого нужно использовать конструкцию комментария ```<!-- Описание блока или параметра -->``` сразу же после определения блока или параметра.
 ### 
 ```html
-<!-- Обязательно документировать каждый блок или параметр -->
 <div class="modal-base" block="modal">
 <!-- Блок для отображения модального окна (этот комментарий станет названием блока в документации) -->
     <div class="modal-header modal-base__header">
-        <h4 class="modal-base__header-title" param="head" type="string">
-            <!-- Заголовок окна. Ждем текст-->
+        <h4 class="modal-base__header-title" param="head">
+            <!-- Заголовок окна. -->
         </h4>
     </div>
-    <div class="modal-body modal-base__body" param="body" type="">
+    <div class="modal-body modal-base__body" param="body">
         <!-- Контент модалки. Ждем HTML -->
+
     </div>
-        <div class="modal-footer modal-base__footer" param="footer">
+    <div class="modal-footer modal-base__footer" param="footer">
         <!-- Контент модалки. Ждем HTML -->
     </div>
 </div>
@@ -22,9 +21,9 @@
 
 
 
-## Define a buildhtml block in HTML template, modal window for example.
+## Объявляем блок buildhtml в шаблоне. Например, пусть это типовое модальное окно.
 
-```xml
+```html
 
 
 <!DOCTYPE html>
@@ -44,21 +43,13 @@
         Header text.
     </head>
     <body>
-    <div>
-        <p>Some custom HTML or another buildhtml block</p>
-
-        <buildhtml block="form">
-            <buildhtml block="form-row">
-                <buildhtml block="form-label">Label text</buildhtml>
-                <buildhtml block="form-control_input"
-                           id="1"
-                           placeholder="Any placeholder"></buildhtml>
-            </buildhtml>
-        </buildhtml>
-    </div>
+        <div>
+            <p>Some custom HTML</p>
+        </div>
     </body>
     <footer>
-        Some footer stuff, buttons, etc.
+        <button>Cancel</button>
+        <button>Apply</button>
     </footer>
 </buildhtml>
 
@@ -72,9 +63,56 @@
 
 ```
 
-## Maybe form?
+## После препроцессинга шаблона получим:
 
-```xml
+```html 
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div class="header">
+    ...
+</div>
+
+
+<div class="modal-base">
+    <div class="modal-header modal-base__header">
+        <h4 class="modal-base__header-title">
+            Header text.      
+        </h4>
+    </div>
+    <div class="modal-body modal-base__body">
+        <div>
+            <p>Some custom HTML</p>
+        </div>
+    </div>
+    <div class="modal-footer modal-base__footer">
+        <button>Cancel</button>
+        <button>Apply</button>
+    </div>
+</div>
+
+
+<div class="footer">
+    ...
+</div>
+
+</body>
+</html>
+
+```
+
+
+
+## На примере формы разберемся с пропертями.
+#### На мой взгляд ннужно прокидывать все проперти из объявления
+
+```html
 <!DOCTYPE html>
 <html>
 <head lang="en">
