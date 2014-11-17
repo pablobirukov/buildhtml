@@ -1,16 +1,20 @@
-## New buildhtml block definition. Every new block and parameter must be documented.
-## Use <!-- Block description text --> notation after block definition.
+### Структура
+##### blocks - файлы блоков buildhtml с описанием каждого параметра.
+###### Например modal.html включает в себя разметку типового модального окна, а так же информацию для документации. Обязательно нужно документировать каждый блок и каждый параметр. Для этого нужно использовать конструкцию комментария ```<!-- Описание блока или параметра -->``` сразу же после определения блока или параметра.
+### 
 ```html
 <!-- Обязательно документировать каждый блок или параметр -->
-<div class="modal-base" _:block="modal">
-    <!-- Блок для отображения модального окна -->
+<div class="modal-base" block="modal">
+<!-- Блок для отображения модального окна (этот комментарий станет названием блока в документации) -->
     <div class="modal-header modal-base__header">
-        <ng-close-button ng-click="modalOptions.close('close')"></ng-close-button>
-        <h4 class="modal-base__header-title" _:param="header">
+        <h4 class="modal-base__header-title" param="head" type="string">
             <!-- Заголовок окна. Ждем текст-->
         </h4>
     </div>
-    <div class="modal-body modal-base__body" _:param="content">
+    <div class="modal-body modal-base__body" param="body" type="">
+        <!-- Контент модалки. Ждем HTML -->
+    </div>
+        <div class="modal-footer modal-base__footer" param="footer">
         <!-- Контент модалки. Ждем HTML -->
     </div>
 </div>
