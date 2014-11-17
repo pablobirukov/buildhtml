@@ -38,17 +38,42 @@
 
 
 
-## Form
+## Define block in HTML template.
 
 ```xml
-<_:modal>
-	<header>
-		Заголовок окна
-	</header>
-	<content>
-		HTML
-	</content>
-</_:modal>
+<html>
+<head></head>
+<body>
+
+...
+
+<buildhtml block="modal">
+	<head>
+		Header text.
+	</head>
+	<body>
+		<div>
+			<p>Some custom HTML or another buildhtml block</p>
+			
+			<buildhtml block="form">
+				<buildhtml block="form-row">
+					<buildhtml block="form-label">Label text</buildhtml>
+					<buildhtml block="form-control_input" id="1" placeholder="Any placeholder">	</buildhtml>
+				</buildhtml>
+			</buildhtml>
+		</div>
+	</body>
+	<footer>
+		Some footer stuff, buttons, etc.
+	</footer>
+</buildhtml>
+
+...
+
+</body>
+</html>
+
+
 ```
 
 ## Content
