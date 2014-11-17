@@ -1,25 +1,5 @@
-        
-## source flow
-    *.decljson > build > release
-    
-./vendor/decljson/
-        
-## raw source   
-```html
-<div class="modal-base">
-    <div class="modal-header modal-base__header">
-        <ng-close-button ng-click="modalOptions.close('close')"></ng-close-button>
-        <h4 class="modal-base__header-title">
-            **HEADER **
-        </h4>
-    </div>
-    <div class="modal-body modal-base__body">
-    		**CONTENT**
-    </div>
-</div>
-```
-
-## New block
+## New buildhtml block definition. Every new block and parameter must be documented.
+## Use <!-- Block description text --> notation after block definition.
 ```html
 <!-- Обязательно документировать каждый блок или параметр -->
 <div class="modal-base" _:block="modal">
@@ -38,43 +18,97 @@
 
 
 
-## Define block in HTML template.
+## Define a buildhtml block in HTML template, modal window for example.
 
 ```xml
+
+
+<!DOCTYPE html>
 <html>
-<head></head>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
 <body>
 
-...
+<div class="header">
+    ...
+</div>
 
 <buildhtml block="modal">
-	<head>
-		Header text.
-	</head>
-	<body>
-		<div>
-			<p>Some custom HTML or another buildhtml block</p>
-			
-			<buildhtml block="form">
-				<buildhtml block="form-row">
-					<buildhtml block="form-label">Label text</buildhtml>
-					<buildhtml block="form-control_input" id="1" placeholder="Any placeholder">	</buildhtml>
-				</buildhtml>
-			</buildhtml>
-		</div>
-	</body>
-	<footer>
-		Some footer stuff, buttons, etc.
-	</footer>
+    <head>
+        Header text.
+    </head>
+    <body>
+    <div>
+        <p>Some custom HTML or another buildhtml block</p>
+
+        <buildhtml block="form">
+            <buildhtml block="form-row">
+                <buildhtml block="form-label">Label text</buildhtml>
+                <buildhtml block="form-control_input"
+                           id="1"
+                           placeholder="Any placeholder"></buildhtml>
+            </buildhtml>
+        </buildhtml>
+    </div>
+    </body>
+    <footer>
+        Some footer stuff, buttons, etc.
+    </footer>
 </buildhtml>
 
-...
+<div class="footer">
+    ...
+</div>
 
 </body>
 </html>
 
 
 ```
+
+## Maybe form?
+
+```xml
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div class="header">
+    ...
+</div>
+
+        <buildhtml block="form">
+            <buildhtml block="form-row">
+                <buildhtml block="form-label">Label text</buildhtml>
+                <buildhtml block="form-control_input"
+                           id="1"
+                           placeholder="Placeholder"></buildhtml>
+            </buildhtml>
+
+            <buildhtml block="form-row">
+                <buildhtml block="form-label">Label 2 text</buildhtml>
+                <buildhtml block="form-control_select"
+                           id="2"
+                            placeholder="Another placeholder"></buildhtml>
+            </buildhtml>
+        </buildhtml>
+
+<div class="footer">
+    ...
+</div>
+
+</body>
+</html>
+
+
+```
+
 
 ## Content
 ```json
